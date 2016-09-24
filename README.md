@@ -4,7 +4,7 @@ z lets you quickly navigate the file system in PowerShell based on your `cd` com
 
 ## Goals
 
-Over the past 2.5 years I have poured many many hours in to tweaking a refining this script to work with PowerShell. It saves me a great deal of time navigating the file system, which is where I spent a lot of my time and has given me a great oportunity to learn PowerShell at a deeper level. Enjoy!
+Since 27 June 2013 I have poured many many hours building, tweaking and refining this script to work with PowerShell. It saves me a great deal of time navigating the file system, which is where I spent a lot of my time and has given me a great oportunity to learn PowerShell at a deeper level. There are no unit tests (yet), but I wrote the script to save me time and learn PowerShell. Enjoy!
 
 The goal is quite simple, save time typing out the fully qualified path names of frequently accessed directories.
 
@@ -28,7 +28,9 @@ Based on the sample commands above, the results would be:
 
 	z foo -o r			cd to highest ranked folder matching foo
 
-	z foo -o l			list all dirs matching folder foo (by frecency)
+	z foo -o f			cd to highest frecency folder matching foo
+	
+	z -l foo			list all dirs matching regex foo
 
 	z office			cd to most frecent folder matching office in drive HKLM (The registry)
 	
