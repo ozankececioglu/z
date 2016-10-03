@@ -35,6 +35,8 @@ Based on the sample commands above, the results would be:
 	z office			cd to most frecent folder matching office in drive HKLM (The registry)
 	
 	z -x				remove the current directory from the datafile
+	
+	z -clean			delete inaccessible paths from the datafile
 
 Unless the -p parameter is specified, the regex you specify will be matched against a filtered drive listing from the current provider. If for example, you're on the C: then the following two commands could be simply replaced by `z foo` as they belong to the same provider and all drives will be searched. But you can be specific if you like.
 
