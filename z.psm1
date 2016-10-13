@@ -346,7 +346,6 @@ function Get-DirectoryEntryMatchPredicate {
                 $JumpPath = $JumpPath.Substring(2).TrimEnd('\')
             }
 
-            $JumpPath = [System.Text.RegularExpressions.Regex]::Escape($JumpPath)
 			[System.Text.RegularExpressions.Regex]::Match($Path.Name, $JumpPath, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase).Success
 		}
 	}
@@ -362,7 +361,7 @@ function Get-CurrentSessionProviderDrives([System.Collections.ArrayList] $Provid
 		# An ideal solution would be to ask the provider if a path is supported.
 		# Supports drives such as C:\ and also UNC \\
 		if ((Get-Location).Provider.ImplementingType.Name -eq 'FileSystemProvider') {
-			'(?i)^(((' + [String]::Concat( ((Get-Location).Provider.Drives.Name | % { $_ + '|' }) ).TrimEnd('|') + '):\\)|(\\{2})).*?'
+			'(?i)^(((' + [String]::Concat( ((Get-Location).Provider.Drives.Name | % { $_ + '|' }) ).TrimEnd('|') + '):\\)|(\\{1,2})).*?'
 		} else {
 			Get-ProviderDrivesRegex (Get-Location).Provider.Drives
 		}
@@ -377,9 +376,9 @@ function Get-ProviderDrivesRegex([System.Collections.ArrayList] $ProviderDrives)
 	}
 
     if ($ProviderDrives.Count -eq 0) {
-        '(?i)^(\\{2}).*?'
+        '(?i)^(\\{1,2}).*?'
     } else {
-        $uncRootPathRegex = '|(\\{2})'
+        $uncRootPathRegex = '|(\\{1,2})'
         '(?i)^((' + [String]::Concat( ($ProviderDrives | % { $_ + '|' }) ).TrimEnd('|') + '):\\)' + $uncRootPathRegex + '.*?'
     }
 }
