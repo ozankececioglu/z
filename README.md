@@ -31,6 +31,8 @@ Based on the sample commands above, the results would be:
 	z foo -o f			cd to highest frecency folder matching foo
 	
 	z -l foo			list all dirs matching regex foo
+	
+	z -l .				list all entries
 
 	z office			cd to most frecent folder matching office in drive HKLM (The registry)
 	
@@ -52,6 +54,8 @@ Below is a list of features which have not yet been ported from the original `z`
 * Does not have the ability to restrict searches to sub-directories of the current directory
 
 ### Added sugar
+
+* Tab completion support
 
 * An in-memory history data file for increased performance. Useful for those who are heavy users of the command line
 
