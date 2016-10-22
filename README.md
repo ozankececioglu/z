@@ -55,7 +55,7 @@ Below is a list of features which have not yet been ported from the original `z`
 
 ### Added sugar
 
-* Tab completion support
+* Tab completion support (will not work if you have PowerTab installed)
 
 * An in-memory history data file for increased performance. Useful for those who are heavy users of the command line
 
