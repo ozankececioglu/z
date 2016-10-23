@@ -79,7 +79,7 @@ Once complete, you'll still need to run the command `Import-Module z` and place 
 
 ### The easy way using PowerShellGet
 
-For those with Windows 7 and above, you can issue a `Install-Module -Name z` command.
+For those with Windows 7 and above, you can issue a `Install-Module z -AllowClobber` command.
 
 See the module listing in the [official PowerShell gallary](https://www.powershellgallery.com/packages/z/)
 
