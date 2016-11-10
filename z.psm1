@@ -638,7 +638,7 @@ $completion_RunningService = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     $global:history | Sort-Object { $_.Rank } -Descending | Where-Object { $_.Path.Name -like "*$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_.Path.Name, $_.Path.FullName, 'ParameterName', ('{0} ({1})' -f $_.Path.Name, $_.Path.FullName) }
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_.Path.FullName, $_.Path.FullName, 'ParameterName', ('{0} ({1})' -f $_.Path.Name, $_.Path.FullName) }
 }
 
 if (-not $global:options) { $global:options = @{CustomArgumentCompleters = @{};NativeArgumentCompleters = @{}}}
