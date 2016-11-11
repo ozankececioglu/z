@@ -1,12 +1,12 @@
 ## z
 
-z lets you quickly navigate the file system in PowerShell based on your `cd` command history. It's a port of [the z bash shell script.](README)
+z lets you quickly navigate the file system in PowerShell based on your `cd` command history. It's a port of [the z bash shell script.](README).
 
 ## Goals
 
 Since 27 June 2013 I have poured many many hours building, tweaking and refining this script to work with PowerShell. It saves me a great deal of time navigating the file system, which is where I spent a lot of my time and has given me a great oportunity to learn PowerShell at a deeper level. There are no unit tests (yet), but I wrote the script to save me time and learn PowerShell. Enjoy!
 
-The goal is quite simple, save time typing out the fully qualified path names of frequently accessed directories.
+The goal is quite simple, save time typing out the fully qualified path names of [frecently](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) accessed directories.
 
 ![ExampleUsage]
 
