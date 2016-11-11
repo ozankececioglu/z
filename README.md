@@ -39,6 +39,10 @@ Based on the sample commands above, the results would be:
 	z -x				remove the current directory from the datafile
 	
 	z -clean			delete inaccessible paths from the datafile
+	
+	z c:\windows		go to c:\windows and log in the datafile (works with any valid path)
+	
+	z c<TAB>			expand entries in the datafile which match 'c'
 
 Unless the -p parameter is specified, the regex you specify will be matched against a filtered drive listing from the current provider. If for example, you're on the C: then the following two commands could be simply replaced by `z foo` as they belong to the same provider and all drives will be searched. But you can be specific if you like.
 
