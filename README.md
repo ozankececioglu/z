@@ -73,27 +73,21 @@ Below is a list of features which have not yet been ported from the original `z`
 
 ### PowerShell installation
 
-#### The easy way using PsGet
-
-If you have [PSGet](http://psget.net/) installed, run: `Install-Module z`
-
-If you have do not have PSGet installed, see their page for instructions.
-
-Once complete, you'll still need to run the command `Import-Module z` and place it in your startup profile.
-
 ### The easy way using PowerShellGet
 
-For those with Windows 7 and above, you can issue a `Install-Module z -AllowClobber` command.
+For those with Windows 10 and above, you can issue a `Install-Module z -AllowClobber` command.
+
+For those with Windows Vista or 7 who are using PowerShell version 3 or 4, you'll need to install [PackageManagement](http://go.microsoft.com/fwlink/?LinkID=746217&clcid=0x409) first before executing `Install-Module z -AllowClobber`.
 
 See the module listing in the [official PowerShell gallary](https://www.powershellgallery.com/packages/z/)
 
-Once complete, run the command `Import-Module z`. For ease of use I recomend placing this command in your PowerShell startup profile.
+Once complete, run the command `Import-Module z`. For ease of use I recomend placing this command in your [PowerShell startup profile](https://technet.microsoft.com/en-us/library/bb613488(v=vs.85).aspx). Typically `$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
 
 #### The hard way
 
 Download the `z.psm1` file and save it to your PowerShell module directory.The default location for this is `$env:USERPROFILE\Documents\WindowsPowerShell\Modules\z` (relative to your Documents folder). You can also extract it to another directory listed in your `$env:PSModulePath`. 
 
-Assuming you want `z` to be avilable in every PowerShell session, open your profile script located at '$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' and add the following line.
+Assuming you want `z` to be avilable in every PowerShell session, open your profile script located at `$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` and add the following line.
 
 `Import-Module z`
 
