@@ -50,14 +50,14 @@ Unless the -p parameter is specified, the regex you specify will be matched agai
 	
 	z foo -p \\ 	cd to most frecent folder matching foo for UNC paths
 
-### Limitations
+## Limitations
 
 Below is a list of features which have not yet been ported from the original `z` bash script...yet.
 
 * Specifying two separate regex's and matching on both, i.e. `z foo bar`
 * Does not have the ability to restrict searches to sub-directories of the current directory
 
-### Added sugar
+## Added sugar
 
 * Tab completion support (will not work if you have PowerTab installed)
 
@@ -67,11 +67,11 @@ Below is a list of features which have not yet been ported from the original `z`
 
 * Executing pushd will record the current directory for use with `z`.
 
-### Planned Features
+## Planned Features
 
 [See the issue listing](https://github.com/vincpa/z/issues)
 
-### PowerShell installation
+## PowerShell installation
 
 ### The easy way using PowerShellGet
 
@@ -83,7 +83,7 @@ See the module listing in the [official PowerShell gallary](https://www.powershe
 
 Once complete, run the command `Import-Module z`. For ease of use I recomend placing this command in your [PowerShell startup profile](https://technet.microsoft.com/en-us/library/bb613488(v=vs.85).aspx). Typically `$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
 
-#### The hard way
+### The hard way
 
 Download the `z.psm1` file and save it to your PowerShell module directory.The default location for this is `$env:USERPROFILE\Documents\WindowsPowerShell\Modules\z` (relative to your Documents folder). You can also extract it to another directory listed in your `$env:PSModulePath`. 
 
@@ -93,7 +93,7 @@ Assuming you want `z` to be avilable in every PowerShell session, open your prof
 
 If the file `Microsoft.PowerShell_profile.ps1` does not exist, you can simply create it and it will be executed the next time a PowerShell session starts.
 
-### Running z
+## Running z
 
 Once the module is installed and has been imported in to your session you can start jumping around. Remember, you need to build up the DB of directories first so be sure to `cd` around your file system.
 
