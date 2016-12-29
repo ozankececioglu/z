@@ -20,7 +20,7 @@ Once installed, `cd` in to a few directories
 
 `cd 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files'`
 
-Based on the sample commands above, the results would be:
+Based on the examples above, try executing some of these commands.
 
 	z foo				cd to most frecent folder matching foo
 	
