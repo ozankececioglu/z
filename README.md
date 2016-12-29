@@ -50,6 +50,8 @@ Unless the -p parameter is specified, the regex you specify will be matched agai
 	
 	z foo -p \\ 	cd to most frecent folder matching foo for UNC paths
 
+	z foo			Exactly the same as the above two commands
+
 ## Limitations
 
 Below is a list of features which have not yet been ported from the original `z` bash script...yet.
