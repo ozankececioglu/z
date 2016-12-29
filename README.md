@@ -50,7 +50,7 @@ Unless the -p parameter is specified, the regex you specify will be matched agai
 	
 	z foo -p \\ 	cd to most frecent folder matching foo for UNC paths
 
-	z foo			Exactly the same as the above two commands
+	z foo			Replaces the above two commands
 
 ## Limitations
 
