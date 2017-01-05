@@ -30,6 +30,8 @@ Based on the examples above, try executing some of these commands.
 
 	z foo -o f			cd to highest frecency folder matching foo
 	
+	z foo -o t			cd to the most recently accessed folder matching foo
+	
 	z -l foo			list all dirs matching regex foo
 	
 	z -l .*				list all entries
@@ -50,7 +52,7 @@ Unless the -p parameter is specified, the regex you specify will be matched agai
 	
 	z foo -p \\ 	cd to most frecent folder matching foo for UNC paths
 
-	z foo			Replaces the above two commands
+	z foo			try to match foo in c drive, d drive, UNC paths and the registry
 
 ## Limitations
 
@@ -61,7 +63,7 @@ Below is a list of features which have not yet been ported from the original `z`
 
 ## Added sugar
 
-* Tab completion support (will not work if you have PowerTab installed)
+* Tab completion support (will not currently work if you have PowerTab installed)
 
 * An in-memory history data file for increased performance. Useful for those who are heavy users of the command line
 
