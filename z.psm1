@@ -13,7 +13,7 @@
 
 .PARAMETER JumpPath
 
-A regular expression of the directory name to jump to.
+A un-escaped regular expression of the directory name to jump to. Character escaping will be done internally.
 
 .PARAMETER Option
 
@@ -349,7 +349,7 @@ function Get-DirectoryEntryMatchPredicate {
                 $JumpPath = $JumpPath.Substring(2).TrimEnd('\')
             }
 
-            [System.Text.RegularExpressions.Regex]::Match($Path.Name, $JumpPath, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase).Success
+            [System.Text.RegularExpressions.Regex]::Match($Path.Name, [System.Text.RegularExpressions.Regex]::Escape($JumpPath), [System.Text.RegularExpressions.RegexOptions]::IgnoreCase).Success
         }
     }
 }
