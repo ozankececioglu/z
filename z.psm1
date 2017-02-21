@@ -101,7 +101,7 @@ function z {
     if (((-not $Clean) -and (-not $Remove)) -and [string]::IsNullOrWhiteSpace($JumpPath)) { Get-Help z; return; }
  
     # If a valid path is passed in to z, treat it like the normal cd command
-    if ((Test-Path $JumpPath)) {
+    if (-not [string]::IsNullOrWhiteSpace($JumpPath) -and (Test-Path $JumpPath)) {
         cdX $JumpPath
         return;
     }
@@ -407,10 +407,13 @@ function Cleanup-CdCommandHistory() {
         for($i = 0; $i -lt $global:history.Length; $i++) {
 
             $line = $global:history[$i]
-            $testDir = $line.Path.FullName
-            if ($testDir -ne $null -and !(Test-Path $testDir)) {
-                $global:history[$i] = $null
-                Write-Host "Removing inaccessible path $testDir" -ForegroundColor Red
+
+            if ($line -ne $null) {
+                $testDir = $line.Path.FullName
+                if (-not [string]::IsNullOrWhiteSpace($testDir) -and !(Test-Path $testDir)) {
+                    $global:history[$i] = $null
+                    Write-Host "Removed inaccessible path $testDir" -ForegroundColor Yellow
+                }
             }
         }
         Remove-Old-History
