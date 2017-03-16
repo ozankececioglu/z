@@ -14,7 +14,7 @@ RootModule = 'z.psm1'
 #ModuleToProcess = 'z.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.6'
+ModuleVersion = '1.1.7'
 
 # ID used to uniquely identify this module
 GUID = 'bc198554-ae1f-4ab6-84ce-5d3a41b74553'
@@ -62,7 +62,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Tab completion shows full path names and z now supports a valid path which means you can use z to move around the filesystem.'
+        ReleaseNotes = 'Fixed jump paths with invalid regex escape sequences. Fixed jump path error when path contained spaces.'
 
     } # End of PSData hashtable
 
