@@ -14,7 +14,7 @@ RootModule = 'z.psm1'
 #ModuleToProcess = 'z.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.7'
+ModuleVersion = '1.1.8'
 
 # ID used to uniquely identify this module
 GUID = 'bc198554-ae1f-4ab6-84ce-5d3a41b74553'
@@ -31,13 +31,7 @@ PowerShellVersion = '3.0'
 FileList = 'z.psm1'
 
 # Functions to export from this module
-FunctionsToExport = '*'
-
-# Cmdlets to export from this module
-CmdletsToExport = '*'
-
-# Variables to export from this module
-VariablesToExport = '*'
+FunctionsToExport = 'z,cd'
 
 # Aliases to export from this module
 AliasesToExport = '*'
@@ -62,7 +56,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Fixed jump paths with invalid regex escape sequences. Fixed jump path error when path contained spaces.'
+        ReleaseNotes = 'Add cd history file check for first time users. Reduce PowerShell function export count to 1.'
 
     } # End of PSData hashtable
 
