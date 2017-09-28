@@ -34,7 +34,7 @@ Based on the examples above, try executing some of these commands.
 	
 	z -l foo			list all dirs matching regex foo
 	
-	z -l .*				list all entries
+	z -l				list all entries
 
 	z office			cd to most frecent folder matching office in drive HKLM (The registry)
 	
