@@ -31,7 +31,7 @@ PowerShellVersion = '3.0'
 FileList = 'z.psm1'
 
 # Functions to export from this module
-FunctionsToExport = 'z,cd'
+FunctionsToExport = @('z', 'cdX', 'popdX', 'pushdX')
 
 # Aliases to export from this module
 AliasesToExport = '*'

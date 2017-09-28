@@ -98,7 +98,7 @@ function z {
   $Clean = $null
 )
 
-    if (((-not $Clean) -and (-not $Remove)) -and [string]::IsNullOrWhiteSpace($JumpPath)) { Get-Help z; return; }
+    if (((-not $Clean) -and (-not $Remove) -and (-not $ListFiles)) -and [string]::IsNullOrWhiteSpace($JumpPath)) { Get-Help z; return; }
  
     # If a valid path is passed in to z, treat it like the normal cd command
     if (-not [string]::IsNullOrWhiteSpace($JumpPath) -and (Test-Path $JumpPath)) {
@@ -130,7 +130,7 @@ function z {
 
             $global:history |
                 ? { Get-DirectoryEntryMatchPredicate -path $_.Path -jumpPath $JumpPath -ProviderRegex $providerRegex } | Get-ArgsFilter -Option $Option |
-                % { if (Test-Path $_.Path.FullName) {$list += $_} }
+                % { if ($ListFiles -or (Test-Path $_.Path.FullName)) {$list += $_} }
 
             if ($ListFiles) {
 
@@ -140,7 +140,12 @@ function z {
             } else {
 
                 if ($list.Length -eq 0) {
-                    Write-Host "$JumpPath Not found"
+                    # It's not found in the history file, perhaps it's still a valid directory. Let's check.
+                    if ((Test-Path $JumpPath)) {
+                        cdX $JumpPath
+                    } else {
+					    Write-Host "$JumpPath Not found"
+                    }
 
                 } else {
                     if ($list.Length -gt 1) {
@@ -328,7 +333,6 @@ function Get-DirectoryEntryMatchPredicate {
         $Path,
 
         [Parameter(
-        Mandatory=$true,
         ValueFromPipeline=$true,
         ValueFromPipelineByPropertyName=$true)]
         [string] $JumpPath,
