@@ -14,7 +14,7 @@ RootModule = 'z.psm1'
 #ModuleToProcess = 'z.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.8'
+ModuleVersion = '1.1.9'
 
 # ID used to uniquely identify this module
 GUID = 'bc198554-ae1f-4ab6-84ce-5d3a41b74553'
@@ -56,7 +56,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Add cd history file check for first time users. Reduce PowerShell function export count to 1.'
+        ReleaseNotes = 'Add cd history file check for first time users. Fix entry listing and remove wildcard.'
 
     } # End of PSData hashtable
 
