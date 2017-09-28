@@ -34,7 +34,7 @@ Based on the examples above, try executing some of these commands.
 	
 	z -l foo			list all dirs matching regex foo
 	
-	z -l .*				list all entries
+	z -l				list all entries
 
 	z office			cd to most frecent folder matching office in drive HKLM (The registry)
 	
@@ -99,6 +99,6 @@ If the file `Microsoft.PowerShell_profile.ps1` does not exist, you can simply cr
 
 ## Running z
 
-Once the module is installed and has been imported in to your session you can start jumping around. Remember, you need to build up the DB of directories first so be sure to `cd` around your file system.
+Once the module is installed and has been imported in to your session you can start jumping around. Remember, you need to build up the DB of directories first so be sure to `cd` around your file system. You can also use `z` as an alternative to the `cd` command.
 
 [ExampleUsage]: https://raw.githubusercontent.com/vincpa/z/master/example_usage.gif
