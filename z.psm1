@@ -337,7 +337,7 @@ function Get-DirectoryEntryMatchPredicate {
         ValueFromPipelineByPropertyName=$true)]
         [string] $JumpPath,
 
-        [string] $ProviderRegex
+        $ProviderRegex
     )
 
     if ($Path -ne $null) {
