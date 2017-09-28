@@ -46,14 +46,6 @@ Based on the examples above, try executing some of these commands.
 	
 	z c<TAB>			expand entries in the datafile which match 'c'
 
-Unless the -p parameter is specified, the regex you specify will be matched against a filtered drive listing from the current provider. If for example, you're on the C: then the following two commands could be simply replaced by `z foo` as they belong to the same provider and all drives will be searched. But you can be specific if you like.
-
-	z foo -p c,d	cd to most frecent folder matching foo in drives C: and D:
-	
-	z foo -p \\ 	cd to most frecent folder matching foo for UNC paths
-
-	z foo			try to match foo in c drive, d drive, UNC paths and the registry
-
 ## Limitations
 
 Below is a list of features which have not yet been ported from the original `z` bash script...yet.
