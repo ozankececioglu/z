@@ -29,14 +29,6 @@ Restrict matches to subdirectories of the current directory
 
 List only, don't navigate to the directory
 
-.PARAMETER $ProviderDrives
-
-A comma separated string of drives to match on. If none is specified, it will use a drive list from the currently selected provider.
-
-For example, the following command will run the regular expression 'foo' against all folder names where the drive letters in your history match HKLM:\ C:\ or D:\
-
-z foo -p HKLM,C,D
-
 .PARAMETER $Remove
 
 Remove the current directory from the datafile
@@ -82,9 +74,6 @@ function z {
     [switch]
     $OnlyCurrentDirectory = $null,
 
-    [Alias('p')]
-    $ProviderDrives = $null,
-
     [Alias('l')]
     [switch]
     $ListFiles = $null,
@@ -120,8 +109,6 @@ function z {
 
             If ($OnlyCurrentDirectory) {
                 $providerRegex = (Get-FormattedLocation).replace('\','\\') + '\\.*?'
-            } elseif ($ProviderDrives.Length -gt 0) {
-                $providerRegex = Get-CurrentSessionProviderDrives $ProviderDrives
             } else {
                 $providerRegex = Get-CurrentSessionProviderDrives ((Get-PSProvider).Drives | select -ExpandProperty Name)
             }
