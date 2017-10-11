@@ -567,6 +567,15 @@ function ConvertTo-DirectoryEntry {
 
             try {
                 $fileName = [System.IO.Path]::GetFileName($pathValue);
+                
+                # GetFileName() does not work with registry paths
+                if ($fileName -eq '') {
+                    $lastPathSeparator = $pathValue.LastIndexOf('\');
+                    if ($lastPathSeparator -ge 0) {
+                        $pathValue = $pathValue.TrimEnd('\');
+                        $fileName = $pathValue.Substring( + 1);
+                    }
+                }
             } catch [System.ArgumentException] { }
 
             $time = [long]::Parse($line.Substring(7, 18), [Globalization.CultureInfo]::InvariantCulture)
