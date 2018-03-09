@@ -42,7 +42,7 @@ Based on the examples above, try executing some of these commands.
 	
 	z -clean			delete inaccessible paths from the datafile
 	
-	z c:\windows		go to c:\windows and log in the datafile (works with any valid path)
+	z c:\windows			go to c:\windows and log in the datafile (works with any valid path)
 	
 	z c<TAB>			expand entries in the datafile which match 'c'
 
@@ -59,9 +59,9 @@ Below is a list of features which have not yet been ported from the original `z`
 
 * An in-memory history data file for increased performance. Useful for those who are heavy users of the command line
 
-* Works with registry paths such as `HKLM\Software\....` and NetBIOS paths such as `\\server\share`. I have also tested this with [StudioShell](https://studioshell.codeplex.com/) which helps navigating Visual Studio that much faster.
+* Works with registry paths such as `HKLM\Software\....` and NetBIOS paths such as `\\server\share`.
 
-* Executing pushd will record the current directory for use with `z`.
+* Executing `pushd` will record the current directory for use with `z`.
 
 ## Planned Features
 
