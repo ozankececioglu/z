@@ -57,8 +57,6 @@ Below is a list of features which have not yet been ported from the original `z`
 
 * Tab completion support (will not currently work if you have PowerTab installed)
 
-* An in-memory history data file for increased performance. Useful for those who are heavy users of the command line
-
 * Works with registry paths such as `HKLM\Software\....` and NetBIOS paths such as `\\server\share`.
 
 * Executing `pushd` will record the current directory for use with `z`.
