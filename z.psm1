@@ -1,4 +1,4 @@
-﻿$cdHistory = Join-Path -Path $Env:USERPROFILE -ChildPath '\.cdHistory'
+﻿$cdHistory = Join-Path -Path $Env:HOME -ChildPath '\.cdHistory'
 
 <#
 
@@ -347,7 +347,10 @@ function Get-DirectoryEntryMatchPredicate {
 
 function Get-CurrentSessionProviderDrives([System.Collections.ArrayList] $ProviderDrives) {
 
-    if ($ProviderDrives -ne $null -and $ProviderDrives.Length -gt 0) {
+    if($IsLinux -Or $IsMacOS) {
+        # Always only '/' which needs escaped to work in a regex
+        '\/'
+    } elseif ($ProviderDrives -ne $null -and $ProviderDrives.Length -gt 0) {
         Get-ProviderDrivesRegex $ProviderDrives
     } else {
 
@@ -650,4 +653,4 @@ if (-not $global:options) { $global:options = @{CustomArgumentCompleters = @{};N
 
 $global:options['CustomArgumentCompleters']['z:JumpPath'] = $Completion_RunningService
 
-$function:tabexpansion2 = $function:tabexpansion2 -replace 'End\r\n{','End { if ($null -ne $options) { $options += $global:options} else {$options = $global:options}'
+$function:tabexpansion2 = $function:tabexpansion2 -replace 'End(\r\n|\n){','End { if ($null -ne $options) { $options += $global:options} else {$options = $global:options}'
