@@ -1,4 +1,5 @@
-﻿$cdHistory = Join-Path -Path $Env:HOME -ChildPath '\.cdHistory'
+﻿$safehome = if ([String]::IsNullOrWhiteSpace($Env:HOME)) { $env:USERPROFILE } else { $Env:HOME } 
+$cdHistory = Join-Path -Path $safehome -ChildPath '\.cdHistory'
 
 <#
 
