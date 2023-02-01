@@ -63,6 +63,7 @@ z foo -o Time
 function z {
     param(
     [Parameter(Position=0)]
+    [ArgumentCompleter({ DirectoryArgumentCompleter @args })]
     [string]
     ${JumpPath},
 
@@ -106,7 +107,7 @@ function z {
 
     if ((Test-Path $cdHistory)) {
         if ($Remove) {
-        Save-CdCommandHistory $Remove
+            Save-CdCommandHistory $Remove
         } elseif ($Clean) {
             Cleanup-CdCommandHistory
         } else {
@@ -178,10 +179,12 @@ function pushdX
     [CmdletBinding(DefaultParameterSetName='Path', SupportsTransactions=$true, HelpUri='http://go.microsoft.com/fwlink/?LinkID=113370')]
     param(
         [Parameter(ParameterSetName='Path', Position=0, ValueFromPipeline=$true, ValueFromPipelineByPropertyName=$true)]
+        [ArgumentCompleter({ DirectoryArgumentCompleter @args })]
         [string]
         ${Path},
 
         [Parameter(ParameterSetName='LiteralPath', ValueFromPipelineByPropertyName=$true)]
+        [ArgumentCompleter({ DirectoryArgumentCompleter @args })]
         [Alias('PSPath')]
         [string]
         ${LiteralPath},
@@ -288,10 +291,12 @@ function cdX
     [CmdletBinding(DefaultParameterSetName='Path', SupportsTransactions=$true, HelpUri='http://go.microsoft.com/fwlink/?LinkID=113397')]
     param(
         [Parameter(ParameterSetName='Path', Position=0, ValueFromPipeline=$true, ValueFromPipelineByPropertyName=$true)]
+        [ArgumentCompleter({ DirectoryArgumentCompleter @args })]
         [string]
         ${Path},
 
         [Parameter(ParameterSetName='LiteralPath', Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
+        [ArgumentCompleter({ DirectoryArgumentCompleter @args })]
         [Alias('PSPath')]
         [string]
         ${LiteralPath},
@@ -365,6 +370,19 @@ function Get-DirectoryEntryMatchPredicate {
         }
     }
 }
+
+function DirectoryArgumentCompleter
+{
+    param ( $commandName,
+                    $parameterName,
+                    $wordToComplete,
+                    $commandAst,
+                    $fakeBoundParameters )
+
+    $command = "Set-Location " + $wordToComplete
+    TabExpansion2 $command $command.Length | % CompletionMatches
+}
+
 
 function Get-CurrentSessionProviderDrives([System.Collections.ArrayList] $ProviderDrives) {
 
